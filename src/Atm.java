@@ -11,6 +11,7 @@ public class Atm {
         public int getBalance() {
             return balance;
         }
+
         public void topUp(int money) {
             balance += money;
             System.out.println("Hesabınıza " + money + " TL yüklendi");
@@ -27,6 +28,7 @@ public class Atm {
         }
 
     }
+
     private final Scanner scanner = new Scanner(System.in);
     private final Balance balance = new Balance(10000);
 
@@ -48,48 +50,45 @@ public class Atm {
                 }
             }
             int money;
-            switch (selection) {
-                case 1 -> System.out.println("Hesabınızdaki tutar : " + balance.getBalance() + " TL");
-                case 2 -> {
-                    while (true) {
-                        try {
-                            System.out.print("\n\nYatırmak istediğiniz miktarı giriniz(Z) ->  ");
-                            money = scanner.nextInt();
-                            break;
-                        } catch (Exception e) {
-                            scanner.nextLine();
-                            System.out.println("Hatalı değer girildi lütfen tekrar deneyiniz");
-                        }
+            if (selection == 1) {
+                System.out.println("Hesabınızdaki tutar : " + balance.getBalance() + " TL");
+            } else if (selection == 2) {
+                while (true) {
+                    try {
+                        System.out.print("\n\nYatırmak istediğiniz miktarı giriniz(Z) ->  ");
+                        money = scanner.nextInt();
+                        break;
+                    } catch (Exception e) {
+                        scanner.nextLine();
+                        System.out.println("Hatalı değer girildi lütfen tekrar deneyiniz");
                     }
-                    balance.topUp(money);
                 }
-                case 3 -> {
-                    while (true) {
-                        try {
-                            System.out.print("\n\nÇekmek istediğiniz miktarı giriniz(Z) ->  ");
-                            money = scanner.nextInt();
-                            break;
-                        } catch (Exception e) {
-                            scanner.nextLine();
-                            System.out.println("Hatalı değer girildi lütfen tekrar deneyiniz");
-                        }
+                balance.topUp(money);
+            } else if (selection == 3) {
+                while (true) {
+                    try {
+                        System.out.print("\n\nÇekmek istediğiniz miktarı giriniz(Z) ->  ");
+                        money = scanner.nextInt();
+                        break;
+                    } catch (Exception e) {
+                        scanner.nextLine();
+                        System.out.println("Hatalı değer girildi lütfen tekrar deneyiniz");
                     }
-                    balance.withdraw(money);
                 }
-                case 0 -> {
-                    System.out.println("Sistemden çıkış yapılıyor");
-                    Thread.sleep(1000);
-                    System.out.println("3");
-                    Thread.sleep(1000);
-                    System.out.println("2");
-                    Thread.sleep(1000);
-                    System.out.println("1");
-                    Thread.sleep(1000);
-                    System.out.println("0");
-                    System.exit(0);
-                }
-                default -> System.out.println("Hatalı değer girildi lütfen tekrar deneyiniz");
-
+                balance.withdraw(money);
+            } else if (selection == 0) {
+                System.out.println("Sistemden çıkış yapılıyor");
+                Thread.sleep(1000);
+                System.out.println("3");
+                Thread.sleep(1000);
+                System.out.println("2");
+                Thread.sleep(1000);
+                System.out.println("1");
+                Thread.sleep(1000);
+                System.out.println("0");
+                break;
+            } else {
+                System.out.println("Hatalı değer girildi lütfen tekrar deneyiniz");
             }
 
         }
