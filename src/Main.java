@@ -5,9 +5,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int selection;
         while (true) {
-            System.out.println("[1] ATM Uygulaması");
+            System.out.println("\n[1] ATM Uygulaması");
             System.out.println("[2] Bir Sayının Armstrong Olup Olmadıgını Bulan Uygulama");
             System.out.println("[3] Çarpım Tablosu");
+            System.out.println("[4] Faiz Hesaplama");
             System.out.println("[0] Çıkış");
             while (true) {
                 try {
@@ -28,6 +29,19 @@ public class Main {
             } else if (selection==3) {
                 MultiplicationTable table = new MultiplicationTable();
                 table.multiplicationTable();
+            } else if (selection==4) {
+                while (true) {
+                    try {
+                        System.out.print("Sırasıyla anapara, faiz oranı ve kaç yıl vade yapacağınızı giriniz -> ");
+                        InterestCalculator calculator = new InterestCalculator(
+                                scanner.nextDouble(),scanner.nextDouble(),scanner.nextInt());
+                        calculator.interest();
+                        break;
+                    } catch (Exception e) {
+                        scanner.nextLine();
+                        System.out.println("Lütfen değerli doğru bir şekilde tekrar giriniz");
+                    }
+                }
             } else if (selection==0) {
                 System.out.println("Çıkış yapılıyor");
                 System.exit(0);
