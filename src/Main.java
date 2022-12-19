@@ -10,6 +10,7 @@ public class Main {
             System.out.println("[2] Bir Sayının Armstrong Olup Olmadıgını Bulan Uygulama");
             System.out.println("[3] Çarpım Tablosu");
             System.out.println("[4] Faiz Hesaplama");
+            //TODO
             System.out.println("[0] Çıkış");
             while (true) {
                 try {
