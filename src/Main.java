@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+        System.out.println("****************BİNBİR ÇEŞİT UYGULAMAYA HOŞ GELDİNİZ****************\n\n");
         Scanner scanner = new Scanner(System.in);
         int selection;
         while (true) {
